@@ -43,17 +43,17 @@ public class DataSearch {
 
             Thread.sleep(1000);
 
-            List<WebElement> suggestionList = driver.findElements(By.xpath("//div[@id='Alh6id']//li[@role='presentation']//div[@class='wM6W7d']"));
+            List<WebElement> SuggestList = driver.findElements(By.xpath("//div[@id='Alh6id']//li[@role='presentation']//div[@class='wM6W7d']"));
 
             String largestData = "";
-            String shortestData = suggestionList.get(0).getText();
+            String shortestData = SuggestList.get(0).getText();
 
-            for (WebElement suggestion : suggestionList) {
-                String suggestionText = suggestion.getText();
-                if (suggestionText.length() > largestData.length()) {
-                    largestData = suggestionText;
-                } else if (suggestionText.length() < shortestData.length()) {
-                    shortestData = suggestionText;
+            for (WebElement suggestion : SuggestList) {
+                String TextSuggest = suggestion.getText();
+                if (TextSuggest.length() > largestData.length()) {
+                    largestData = TextSuggest;
+                } else if (TextSuggest.length() < shortestData.length()) {
+                    shortestData = TextSuggest;
                 }
             }
 
